@@ -1,5 +1,5 @@
 ---
-- name: openssh | Deploy openssh daemon AuthorizedKeysCommand file
+- name: "openssh | Deploy openssh daemon AuthorizedKeysCommand file"
   ansible.builtin.copy:
     dest: "{{ hostvars[inventory_hostname]['openssh_dest'] +
       '/AuthorizedKeysCommand' }}"

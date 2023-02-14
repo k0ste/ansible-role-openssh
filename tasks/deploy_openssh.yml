@@ -1,5 +1,5 @@
 ---
-- name: openssh | Deploy openssh daemon configuration
+- name: "openssh | Deploy openssh daemon configuration"
   ansible.builtin.template:
     src: "sshd_config.j2"
     dest: "{{ hostvars[inventory_hostname]['openssh_dest'] + '/sshd_config' }}"
@@ -11,7 +11,7 @@
     validate: "sshd -T -C user=ansible,host=none,addr=none -f %s"
   notify:
     - "Reload openssh daemon"
-- name: openssh | Enable openssh daemon service
+- name: "openssh | Enable openssh daemon service"
   ansible.builtin.systemd:
     name: "{{ hostvars[inventory_hostname]['openssh_service'] }}"
     enabled: "yes"
